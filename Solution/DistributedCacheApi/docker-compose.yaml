@@ -1,0 +1,31 @@
+services:
+  redis:
+    image: redis:6.2.6-alpine
+    ports:
+    - "6379:6379"
+  
+  no-cache-api-instance-1:
+    build:
+      context: ../
+      dockerfile: DistributedCacheApi/Dockerfile
+    environment:
+    - "Redis__ConnectionString=redis:6379"
+    ports:
+    - "42685:80"
+    links:
+    - "redis"
+    depends_on:
+    - "redis"
+  
+  no-cache-api-instance-2:
+    build:
+      context: ../
+      dockerfile: DistributedCacheApi/Dockerfile
+    environment:
+    - "Redis__ConnectionString=redis:6379"
+    ports:
+    - "42686:80"
+    links:
+    - "redis"
+    depends_on:
+    - "redis"

@@ -1,6 +1,6 @@
 ﻿using System.Diagnostics.CodeAnalysis;
 
-namespace Common.Redis;
+namespace Common;
 
 public interface ISerializer
 {

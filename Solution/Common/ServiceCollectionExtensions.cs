@@ -9,15 +9,17 @@ public static class ServiceCollectionExtensions
             .AddControllers();
 
         return services
-            .AddTransient<ICache, DummyCache>()
+            .AddSingleton<IInstanceIdentifierProvider, InstanceIdentifierProvider>()
+            .AddSingleton<ISerializer, NewtonsoftSerializer>()
+            .AddSingleton<ICache, DummyCache>()
             .AddSingleton<IDataFactory, DataFactory>();
     }
 
-    public static IServiceCollection ReplaceTransient<TService, TImplementation>(this IServiceCollection services)
+    public static IServiceCollection ReplaceSingletone<TService, TImplementation>(this IServiceCollection services)
         where TService : class
         where TImplementation : class, TService
     {
-        return services.Replace<TService, TImplementation>(ServiceLifetime.Transient);
+        return services.Replace<TService, TImplementation>(ServiceLifetime.Singleton);
     }
 
     public static IServiceCollection Replace<TService, TImplementation>(

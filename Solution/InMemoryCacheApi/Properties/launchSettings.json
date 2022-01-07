@@ -4,24 +4,22 @@
     "windowsAuthentication": false,
     "anonymousAuthentication": true,
     "iisExpress": {
-      "applicationUrl": "http://localhost:13435",
+      "applicationUrl": "http://localhost:42685",
       "sslPort": 0
     }
   },
   "profiles": {
     "InMemoryCacheApi": {
       "commandName": "Project",
-      "launchBrowser": true,
       "launchUrl": "api/v1/data",
       "environmentVariables": {
         "ASPNETCORE_ENVIRONMENT": "Development"
       },
-      "applicationUrl": "http://localhost:5057",
+      "applicationUrl": "http://localhost:42685",
       "dotnetRunMessages": true
     },
     "IIS Express": {
       "commandName": "IISExpress",
-      "launchBrowser": true,
       "launchUrl": "api/v1/data",
       "environmentVariables": {
         "ASPNETCORE_ENVIRONMENT": "Development"
@@ -29,7 +27,6 @@
     },
     "Docker": {
       "commandName": "Docker",
-      "launchBrowser": true,
       "launchUrl": "{Scheme}://{ServiceHost}:{ServicePort}/api/v1/data",
       "publishAllPorts": true
     }

@@ -9,7 +9,7 @@
     }
   },
   "profiles": {
-    "NoCacheApi": {
+    "HybridCacheApi": {
       "commandName": "Project",
       "launchUrl": "api/v1/data",
       "environmentVariables": {

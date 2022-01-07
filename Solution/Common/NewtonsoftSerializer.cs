@@ -1,7 +1,7 @@
 ﻿using System.Diagnostics.CodeAnalysis;
 using Newtonsoft.Json;
 
-namespace Common.Redis;
+namespace Common;
 
 public class NewtonsoftSerializer : ISerializer
 {

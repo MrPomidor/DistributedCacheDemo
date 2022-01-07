@@ -12,8 +12,8 @@ public static class ServiceCollectionExtensions
     {
         return services
             .AddRedis(redisConnectionString)
-            .AddSingleton<ISerializer, NewtonsoftSerializer>()
-            .ReplaceTransient<ICache, RedisCache>();
+            .AddSingleton<RedisCache>()
+            .ReplaceSingletone<ICache, RedisCache>();
     }
 
     public static IServiceCollection AddRedis(this IServiceCollection services, string redisConnectionString)

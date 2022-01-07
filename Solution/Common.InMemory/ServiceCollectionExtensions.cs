@@ -6,8 +6,10 @@ public static class ServiceCollectionExtensions
 {
     public static IServiceCollection AddInMemoryCache(this IServiceCollection services)
     {
-        services.AddMemoryCache();
-        services.ReplaceTransient<ICache, InMemoryCache>();
+        services
+            .AddMemoryCache()
+            .AddSingleton<InMemoryCache>()
+            .ReplaceSingletone<ICache, InMemoryCache>();
 
         return services;
     }

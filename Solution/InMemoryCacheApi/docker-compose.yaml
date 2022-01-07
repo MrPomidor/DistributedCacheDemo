@@ -1,0 +1,7 @@
+services:
+  no-cache-api:
+    build:
+      context: ../
+      dockerfile: InMemoryCacheApi/Dockerfile
+    ports:
+    - "42685:80"
