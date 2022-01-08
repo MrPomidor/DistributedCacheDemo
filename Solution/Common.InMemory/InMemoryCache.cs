@@ -17,6 +17,11 @@ public class InMemoryCache : ICache
         return _memoryCache.Get<T>(key);
     }
 
+    public void Set<T>([NotNull] string key, T item)
+    {
+        _memoryCache.Set(key, item);
+    }
+
     public async Task<T> GetOrCreateAsync<T>([NotNull] string key, [NotNull] Func<string, Task<T>> itemFactory)
     {
         return await _memoryCache.GetOrCreateAsync(key, async (cacheEntry) =>

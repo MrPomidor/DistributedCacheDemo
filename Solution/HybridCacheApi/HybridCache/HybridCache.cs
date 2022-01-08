@@ -28,6 +28,9 @@ public class HybridCache : ICache
             return valueFromCache;
 
         valueFromCache = await _redisCache.GetOrCreateAsync(key, itemFactory);
+
+        _inMemoryCache.Set(key, valueFromCache);
+
         return valueFromCache;
     }
 
