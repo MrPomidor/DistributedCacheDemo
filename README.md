@@ -1,1 +1,6 @@
-# DistributedCacheDemo
+# Caching demos on ASP NET Core 6
+Этот репозиторий предназначен для демонстрации имплементаций разных механизмов кэширования а также проведение сравнительных тестов. 
+
+Репозиторий состоит из примеров имплементации на платформе ASP NET 6 в папке `src`, а также о [материале с общими сведениями о кэшировании](docs/caching-intro.md) и [материале, содержащем сравнение разных имплементаций](docs/caching-benchmark.md).
+
+Для запуска примеров необходимо установить [Docker](https://www.docker.com/products/docker-desktop), а для проведения тестов - [jMeter](https://jmeter.apache.org/download_jmeter.cgi).
