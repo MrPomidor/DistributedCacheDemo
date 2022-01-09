@@ -2,7 +2,7 @@
 
 public class InstanceIdentifierProvider : IInstanceIdentifierProvider
 {
-    private static readonly Guid _guid = new Guid();
+    private static readonly Guid _guid = Guid.NewGuid();
 
     public Guid GetIdentifier() => _guid;
 }

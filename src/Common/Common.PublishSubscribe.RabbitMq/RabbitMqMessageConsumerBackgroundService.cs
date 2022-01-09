@@ -1,16 +1,16 @@
 ﻿using Microsoft.Extensions.Hosting;
 using RabbitMQ.Client;
 
-namespace Common.PublishSubscribe;
+namespace Common.PublishSubscribe.RabbitMq;
 
-public class MessageConsumerBackgroundService : IHostedService
+public class RabbitMqMessageConsumerBackgroundService : IHostedService
 {
     private readonly IChannelProvider _channelProvider;
-    private readonly IEnumerable<IMessageConsumer> _consumers;
+    private readonly IEnumerable<IRabbitMqMessageConsumer> _consumers;
 
     private IModel? _channel;
 
-    public MessageConsumerBackgroundService(IChannelProvider channelProvider, IEnumerable<IMessageConsumer> consumers)
+    public RabbitMqMessageConsumerBackgroundService(IChannelProvider channelProvider, IEnumerable<IRabbitMqMessageConsumer> consumers)
     {
         _channelProvider = channelProvider;
         _consumers = consumers;

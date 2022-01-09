@@ -6,10 +6,10 @@ EXPOSE 80
 
 FROM mcr.microsoft.com/dotnet/sdk:6.0 AS build
 WORKDIR /src
-COPY ["InMemoryCacheApi/InMemoryCacheApi.csproj", "InMemoryCacheApi/"]
-RUN dotnet restore "InMemoryCacheApi/InMemoryCacheApi.csproj"
+COPY ["Demos/InMemoryCacheApi/InMemoryCacheApi.csproj", "Demos/InMemoryCacheApi/"]
+RUN dotnet restore "Demos/InMemoryCacheApi/InMemoryCacheApi.csproj"
 COPY . .
-WORKDIR "/src/InMemoryCacheApi"
+WORKDIR "/src/Demos/InMemoryCacheApi"
 RUN dotnet build "InMemoryCacheApi.csproj" -c Release -o /app/build
 
 FROM build AS publish

@@ -6,10 +6,10 @@ EXPOSE 80
 
 FROM mcr.microsoft.com/dotnet/sdk:6.0 AS build
 WORKDIR /src
-COPY ["DistributedCacheApi/DistributedCacheApi.csproj", "DistributedCacheApi/"]
-RUN dotnet restore "DistributedCacheApi/DistributedCacheApi.csproj"
+COPY ["Demos/DistributedCacheApi/DistributedCacheApi.csproj", "Demos/DistributedCacheApi/"]
+RUN dotnet restore "Demos/DistributedCacheApi/DistributedCacheApi.csproj"
 COPY . .
-WORKDIR "/src/DistributedCacheApi"
+WORKDIR "/src/Demos/DistributedCacheApi"
 RUN dotnet build "DistributedCacheApi.csproj" -c Release -o /app/build
 
 FROM build AS publish

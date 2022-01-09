@@ -4,10 +4,10 @@ services:
     ports:
     - "6379:6379"
   
-  no-cache-api-instance-1:
+  hybrid-cache-redis-api-instance-1:
     build:
       context: ../../
-      dockerfile: Demos/DistributedCacheApi/Dockerfile
+      dockerfile: Demos/HybridCacheApi.Redis/Dockerfile
     environment:
     - "Redis__ConnectionString=redis:6379"
     ports:
@@ -15,12 +15,13 @@ services:
     links:
     - "redis"
     depends_on:
-    - "redis"
-  
-  no-cache-api-instance-2:
+      redis:
+        condition: service_started
+
+  hybrid-cache-redis-api-instance-2:
     build:
       context: ../../
-      dockerfile: Demos/DistributedCacheApi/Dockerfile
+      dockerfile: Demos/HybridCacheApi.Redis/Dockerfile
     environment:
     - "Redis__ConnectionString=redis:6379"
     ports:
@@ -28,4 +29,5 @@ services:
     links:
     - "redis"
     depends_on:
-    - "redis"
+      redis:
+        condition: service_started

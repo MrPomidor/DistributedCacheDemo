@@ -13,8 +13,9 @@
   </ItemGroup>
 
   <ItemGroup>
+    <ProjectReference Include="..\..\Common\Common.HybridCache\Common.HybridCache.csproj" />
     <ProjectReference Include="..\..\Common\Common.InMemory\Common.InMemory.csproj" />
-    <ProjectReference Include="..\..\Common\Common.PublishSubscribe\Common.PublishSubscribe.csproj" />
+    <ProjectReference Include="..\..\Common\Common.PublishSubscribe.RabbitMq\Common.PublishSubscribe.RabbitMq.csproj" />
     <ProjectReference Include="..\..\Common\Common.Redis\Common.Redis.csproj" />
     <ProjectReference Include="..\..\Common\Common\Common.csproj" />
   </ItemGroup>

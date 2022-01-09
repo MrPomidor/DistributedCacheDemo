@@ -1,12 +1,12 @@
 ﻿using RabbitMQ.Client;
 
-namespace Common.PublishSubscribe;
+namespace Common.PublishSubscribe.RabbitMq;
 
-public class MessagePublisher : IMessagePublisher
+public class RabbitMqMessagePublisher : IMessagePublisher
 {
     private readonly IMessageFormatter _messageFormatter;
     private readonly IChannelProvider _channelProvider;
-    public MessagePublisher(IMessageFormatter messageFormatter, IChannelProvider channelProvider)
+    public RabbitMqMessagePublisher(IMessageFormatter messageFormatter, IChannelProvider channelProvider)
     {
         _messageFormatter = messageFormatter;
         _channelProvider = channelProvider;

@@ -19,7 +19,7 @@ public class InMemoryCache : ICache
 
     public void Set<T>([NotNull] string key, T item)
     {
-        _memoryCache.Set(key, item);
+        _memoryCache.Set(key, item, new MemoryCacheEntryOptions { AbsoluteExpirationRelativeToNow = TimeSpan.FromMilliseconds(Consts.CacheAbsoluteExpirationMilliseconds) });
     }
 
     public async Task<T> GetOrCreateAsync<T>([NotNull] string key, [NotNull] Func<string, Task<T>> itemFactory)

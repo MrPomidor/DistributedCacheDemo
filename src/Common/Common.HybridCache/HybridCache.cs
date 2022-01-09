@@ -1,10 +1,9 @@
 ﻿using System.Diagnostics.CodeAnalysis;
-using Common;
 using Common.InMemory;
 using Common.PublishSubscribe;
 using Common.Redis;
 
-namespace HybridCacheApi.HybridCache;
+namespace Common.HybridCache;
 
 public class HybridCache : ICache
 {

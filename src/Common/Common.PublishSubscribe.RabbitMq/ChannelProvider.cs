@@ -1,6 +1,6 @@
 ﻿using RabbitMQ.Client;
 
-namespace Common.PublishSubscribe;
+namespace Common.PublishSubscribe.RabbitMq;
 
 public class ChannelProvider : IChannelProvider, IDisposable
 {

@@ -1,4 +1,4 @@
-﻿namespace HybridCacheApi.HybridCache;
+﻿namespace Common.HybridCache;
 
 public static class HybridCacheConsts
 {

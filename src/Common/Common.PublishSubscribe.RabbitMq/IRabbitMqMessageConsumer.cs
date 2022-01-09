@@ -1,8 +1,8 @@
 ﻿using RabbitMQ.Client;
 
-namespace Common.PublishSubscribe;
+namespace Common.PublishSubscribe.RabbitMq;
 
-public interface IMessageConsumer
+public interface IRabbitMqMessageConsumer
 {
     Task Register(IModel channel);
 

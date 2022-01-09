@@ -1,6 +1,6 @@
 using Common;
 
-namespace HybridCacheApi.Controllers;
+namespace HybridCacheApi.Redis.Controllers;
 
 public class DataController : DataControllerBase
 {

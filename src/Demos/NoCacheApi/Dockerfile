@@ -6,10 +6,10 @@ EXPOSE 80
 
 FROM mcr.microsoft.com/dotnet/sdk:6.0 AS build
 WORKDIR /src
-COPY ["NoCacheApi/NoCacheApi.csproj", "NoCacheApi/"]
-RUN dotnet restore "NoCacheApi/NoCacheApi.csproj"
+COPY ["Demos/NoCacheApi/NoCacheApi.csproj", "Demos/NoCacheApi/"]
+RUN dotnet restore "Demos/NoCacheApi/NoCacheApi.csproj"
 COPY . .
-WORKDIR "/src/NoCacheApi"
+WORKDIR "/src/Demos/NoCacheApi"
 RUN dotnet build "NoCacheApi.csproj" -c Release -o /app/build
 
 FROM build AS publish

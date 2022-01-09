@@ -9,7 +9,7 @@
     }
   },
   "profiles": {
-    "HybridCacheApi": {
+    "HybridCacheApi.Redis": {
       "commandName": "Project",
       "launchUrl": "api/v1/data",
       "environmentVariables": {

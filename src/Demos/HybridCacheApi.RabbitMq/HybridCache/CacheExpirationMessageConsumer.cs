@@ -1,20 +1,22 @@
 ﻿using Common;
+using Common.HybridCache;
 using Common.PublishSubscribe;
+using Common.PublishSubscribe.RabbitMq;
 using RabbitMQ.Client;
 using RabbitMQ.Client.Events;
 
-namespace HybridCacheApi.HybridCache;
+namespace HybridCacheApi.RabbitMq.HybridCache;
 
-public class HybridCacheMessageConsumer : IMessageConsumer
+public class CacheExpirationMessageConsumer : IRabbitMqMessageConsumer
 {
     private readonly IInstanceIdentifierProvider _instanceIdentifierProvider;
     private readonly IMessageFormatter _messageFormatter;
-    private readonly HybridCache _cache;
+    private readonly Common.HybridCache.HybridCache _cache;
 
     private AsyncEventingBasicConsumer? _consumer;
     private string? _consumerTag;
 
-    public HybridCacheMessageConsumer(IInstanceIdentifierProvider instanceIdentifierProvider, IMessageFormatter messageFormatter, HybridCache cache)
+    public CacheExpirationMessageConsumer(IInstanceIdentifierProvider instanceIdentifierProvider, IMessageFormatter messageFormatter, Common.HybridCache.HybridCache cache)
     {
         _instanceIdentifierProvider = instanceIdentifierProvider;
         _messageFormatter = messageFormatter;

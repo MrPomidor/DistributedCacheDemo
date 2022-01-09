@@ -1,7 +1,7 @@
 services:
   no-cache-api:
     build:
-      context: ../
-      dockerfile: NoCacheApi/Dockerfile
+      context: ../../
+      dockerfile: Demos/NoCacheApi/Dockerfile
     ports:
     - "42685:80"

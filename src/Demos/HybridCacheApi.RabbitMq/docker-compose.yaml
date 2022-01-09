@@ -15,10 +15,10 @@ services:
       timeout: 20s
       retries: 5
   
-  hybrid-cache-api-instance-1:
+  hybrid-cache-rabbit-api-instance-1:
     build:
-      context: ../
-      dockerfile: HybridCacheApi/Dockerfile
+      context: ../../
+      dockerfile: Demos/HybridCacheApi.RabbitMq/Dockerfile
     environment:
     - "Redis__ConnectionString=redis:6379"
     - "RabbitMQ__HostName=rabbitmq"
@@ -33,10 +33,10 @@ services:
       rabbitmq:
         condition: service_healthy
 
-  hybrid-cache-api-instance-2:
+  hybrid-cache-rabbit-api-instance-2:
     build:
-      context: ../
-      dockerfile: HybridCacheApi/Dockerfile
+      context: ../../
+      dockerfile: Demos/HybridCacheApi.RabbitMq/Dockerfile
     environment:
     - "Redis__ConnectionString=redis:6379"
     - "RabbitMQ__HostName=rabbitmq"
