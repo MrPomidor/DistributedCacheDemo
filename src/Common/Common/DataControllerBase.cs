@@ -29,4 +29,17 @@ public abstract class DataControllerBase : ControllerBase, IDataController
         await _itemCache.ClearAsync(Consts.DateNowCacheKey);
         return Ok();
     }
+
+    [HttpGet("large")]
+    public async Task<LargeDataItem> GetLargeDataAsync()
+    {
+        return await _itemCache.GetOrCreateAsync(Consts.LargeDataObjectCacheKey, async (key) => await _dataFactory.GetLargeDataItemAsync());
+    }
+
+    [HttpPost("large")]
+    public async Task<IActionResult> ClearLargeCacheAsync()
+    {
+        await _itemCache.ClearAsync(Consts.LargeDataObjectCacheKey);
+        return Ok();
+    }
 }
