@@ -10,6 +10,7 @@ services:
       dockerfile: Demos/HybridCacheApi.Redis/Dockerfile
     environment:
     - "Redis__ConnectionString=redis:6379"
+    - UseResponseCompression=${USERESPONSECOMPRESSION:-false}
     ports:
     - "42685:80"
     links:
@@ -24,6 +25,7 @@ services:
       dockerfile: Demos/HybridCacheApi.Redis/Dockerfile
     environment:
     - "Redis__ConnectionString=redis:6379"
+    - UseResponseCompression=${USERESPONSECOMPRESSION:-false}
     ports:
     - "42686:80"
     links:

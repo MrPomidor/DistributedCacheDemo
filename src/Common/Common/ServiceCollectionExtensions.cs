@@ -1,4 +1,7 @@
-﻿using Microsoft.Extensions.DependencyInjection;
+﻿using System.IO.Compression;
+using Microsoft.AspNetCore.Builder;
+using Microsoft.AspNetCore.ResponseCompression;
+using Microsoft.Extensions.DependencyInjection;
 
 namespace Common;
 public static class ServiceCollectionExtensions
@@ -7,6 +10,18 @@ public static class ServiceCollectionExtensions
     {
         services
             .AddControllers();
+
+        services.AddResponseCompression(options =>
+        {
+            options.Providers.Add<GzipCompressionProvider>();
+
+            options.MimeTypes = ResponseCompressionDefaults.MimeTypes;
+        });
+
+        services.Configure<GzipCompressionProviderOptions>(options =>
+        {
+            options.Level = CompressionLevel.Fastest;
+        });
 
         return services
             .AddSingleton<IInstanceIdentifierProvider, InstanceIdentifierProvider>()

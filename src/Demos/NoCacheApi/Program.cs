@@ -6,6 +6,6 @@ builder.Services.AddCommon();
 
 var app = builder.Build();
 
-app.MapControllers();
+app.UseCommon();
 
 app.Run();

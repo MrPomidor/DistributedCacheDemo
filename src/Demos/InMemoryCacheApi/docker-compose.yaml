@@ -3,5 +3,7 @@ services:
     build:
       context: ../../
       dockerfile: Demos/InMemoryCacheApi/Dockerfile
+    environment:
+      - UseResponseCompression=${USERESPONSECOMPRESSION:-false}
     ports:
     - "42685:80"

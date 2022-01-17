@@ -17,6 +17,6 @@ builder.Services
 
 var app = builder.Build();
 
-app.MapControllers();
+app.UseCommon();
 
 app.Run();
